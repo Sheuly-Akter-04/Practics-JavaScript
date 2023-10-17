@@ -474,13 +474,493 @@ const aadd = (xx, yy) => {
 aadd(27,23);
 
 /// ES6 hosting = default behavior works on var, on strict mode use "use strict" & also declear var
-/// default & rest paramenter
-function numm(ac, ad, ...az){ //rest parameter sign = ....
-  document.write(`ac = ${ac}, ad = ${ad}, az = ${az}`);
+/// ES6 default & rest paramenter
+function numm(ac, ad, ...az){ //rest parameter sign = .... at last one
+  document.write(`ac = ${ac}, ad = ${ad}, az = ${az}`,"<br>");
 }
 numm(1,2,3,4,5);
 
-/// Spread operator define = ...
+/// ES6 Spread operator define = ... use dot as like rest parameter but in any place parameter
+function addnum(m,n,k){
+    return m+n+k;
+}
+let nnum = [1,2,3]
+document.write(addnum(...nnum ,"<br>"))
+
+//// ES6 object literals
+function stu(cllass,roll){
+    return{
+        cllass,
+        roll  
+    }
+}
+document.write(stu("SSC",1,"<br>"));
+let mssg = {
+    body(){
+        return `This is an object function` 
+    }
+}
+document.write(mssg.body(),"<br>");
+
+/// ES6 for of & for in into the loop 
+/// for of
+const nnaames = [s1, s2, s3]
+for(let nnaame of  nnaames){
+    document.write(nnaame,"<br>");//nnaames will replace nnaame
+}
+
+//// for in
+let info = {
+    ID : 201,
+    funam : `For in name`,
+    cgpa : 3.92
+}
+for(let na in info){
+    document.write(`${na} : ${info[na]},"<br>"`);
+}
+
+//// ES6 For each function = receive a function
+var arrayy = [5,10,15,20];
+numbers.forEach(function(v){
+    document.write(v,"<br>");
+});
+
+////  ES6 For each function do sqaures number
+var arrayy = [5,10,15,20];
+var sqaureNum = [];
+numbers.forEach(function(v){
+    sqaureNum.push(v*v);
+});
+document.write(sqaureNum,"<br>");
+
+////  ES6 For each function do add 5 number
+var arrayy = [5,10,15,20];
+document.write(arrayy, "<br>");
+var sqaureNum = [];
+numbers.forEach(function(v,index,arr){
+    arr[index] = +5;
+});
+document.write(numbers,"<br>");
+
+////ES6 map not need to declare c array for staying value, it take value itself arry & filter array 
+/// map = like for each but not need var array because it return array 
+var arrayy = [2,3,4,5,6];
+
+var sqaureNum = numbers.map(function(v){
+    return(v*v);
+});
+document.write(sqaureNum,"<br>");
+
+//// ES6 Filter = will be filter with condition in array 
+var farrayy = [12,34,6,78,98,0];
+
+var fNum = numbers.filter(function(vc){
+    return vc>10;
+});
+document.write(fNum,"<br>");
+
+//// ES6 Arrow function
+ const msgg = () => "It is arrow function 1";
+ document.write(msgg,"<br>");
+
+////ES6 Arrow function with parameter 
+const add1 = (nuum1, nuum2) => nuum1 + nuum2;
+document.write(add1(50,50),"<br>");
+
+/// ES6 Arrow function with map & filter 
+
+var clients = [
+    {
+        idd: 1,
+        naame: 'Srity',
+        salary: 2000
+    },
+    {
+        idd: 2,
+        naame: 'Adhora',
+        salary: 1000
+    },
+        {
+        idd: 3,
+        naame: 'Rodela',
+        salary: 500
+    }
+]
+
+//previous way
+function clientNam() {
+    return clients.filter(function(mm){
+        return mm.salary >1000;
+    }).map(function(nm){
+        return nm.naame;
+    });
+}
+document.write(clientNam(),"<br>");
+
+/// Arrow function
+const clientNam1 = () => {
+     return clients.filter((ii) => ii.idd > 1).map(jj => jj.salary);
+}
+document.write(clientNam1(),"<br>");
+
+//// ES6 Destructuring array & object 
+/// array destructure
+let serial = [7, 8, 9, 10]
+let [ser1, ser2, ...Z ] = serial;
+document.write(ser1,"<br>");
+document.write(Z,"<br>");
+
+/// array destructure on Swap variable 
+let ss = 97, sa = 98;
+[ss, sa] = [sa, ss];
+document.write(ss,"<br>");
+document.write(sa,"<br>");
+
+/// object destructure
+const infos = {
+    rollno : 23,
+    gpa : 3.92,
+    fulln :'SS'
+}
+const {rollno,fulnn} = infos
+document.write(rollno,"<br>");
+document.write(infos.find(ko => ko.gpa>3.90,"<br>")); ///find() function 
+
+/// nested object destructure
+const infoS = {
+    rollno : 23,
+    gpa : 3.92,
+    fulln : 'SS',
+    languages : {
+        native : 'Bangla',
+        beginner : 'Engish'
+    } 
+}
+const {fulln,languages} = infos
+document.write( languages.native,"<br>");
+
+//// function parameter destructuring
+const sInfo = ({clas, agge}) => {
+    document.write(`${clas}, ${agge}`,"<br>");
+}
+const Info = {
+    clas: 9,
+    agg:"Shilpi"
+}
+sInfo(Info);
+
+/// ES6 find() method of array = gives 1st value of program
+let evNum = [5,55,12,27,98];
+let evenNum = evNum.find(yo => yo%2===0);
+document.write(evenNum, "<br>");
+
+/// ES6 findIndex() method of array = gives 1st index number 
+let evnum = [5,55,12,27,98];
+let evennum = evnum.findIndex(yo => yo%2===0);
+document.write(evennum, "<br>");
+
+//// ES6 modules & class 
+import {sentence, setSentence} from "./module";
+document.write(sentence);
+
+setSentence("This is 2nd line of module, <br>");
+document.write(sentence);
+
+///// ES6 Synchronous & Asynchronous = setTimeout()
+// JS by default Synchronous = after finish 1, 2 start 
+///Asynchronous
+const task1 = () => {
+    document.write("Task 1, <br>");
+};
+const dataload = () => {
+    document.write("Task 2, <br>")
+};
+const task2 = () => {
+    setTimeout(dataload, 2000, "<br>");
+};
+
+//// const task2 = () => {
+    //setTimeout(() => {
+       // document.write("Task 2, date loading, <br>")  
+    //}, 3000);
+//}
+task1();
+task2();
+
+//// ES6 callback & higher order function 
+//normall function 
+function sqaure(q){
+    document.write(`The square of $(q): ${q*q}`, "<br>");
+};
+//// callback
+function higherOrderFunction (numf,callback){
+    callback(numf);
+};
+sqaure(7);
+higherOrderFunction(9,sqaure);
+
+///// ES6 Promise as like callback = panding, resolve, reject according to condition 
+const Promise1 = new Promise((resolve, reject)=>{
+    let completedPromise = true;//condition
+    if(completedPromise){
+        resolve('Promise1 complete, <br>');
+    }else{
+        reject('Not complete promise1, <br>');
+    }
+});
+Promise1.then((res)=> {// work with resolve function 
+document.write(res);
+})
+.catch((errr) => {// 1 catch enough to handle err
+    document.write(errr);
+});
+document.write("End, <br>");
+
+////promise.all() = can call selecting promises
+/// promise.race() = give output of 1 response that 1st solve
+/// await() = use for waiting that async function 
+
+/// API calling 
+///XMLHttpRequest() = used for xml api calling 
+/// get data
+const getData = () => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https....');///default surver
+    
+    xhr.onload = () => {
+        let data = xhr.response;
+        document.write(JSON.parse(data),"<br>");
+    }
+    xhr.onerror = () => {
+        document.write('xml error is here, <br>');
+    }
+    xhr.send();
+}
+getData();
+
+/// for call several api
+const makeRequest = (mmethod, url) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(mmethod, url);///default surver
+    
+    xhr.onload = () => {
+        let data = xhr.response;
+        document.write(JSON.parse(data),"<br>");
+    }
+    xhr.onerror = () => {
+        document.write('xml error is here, <br>');
+    }
+    xhr.send();
+}
+const ggetData = () => {
+   makeRequest('GET', 'https....');///here use different url
+}
+ggetData();
+
+//// sent  data
+const mmakeRequest = (mmethod, url, ddata) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(mmethod, url);///default surver
+
+    xhr.setRequestHeader('Content-Type', 'appication/json')
+    
+    xhr.onload = () => {
+        let data = xhr.response;
+        document.write(JSON.parse(data),"<br>");
+    }
+    xhr.onerror = () => {
+        document.write('xml error is here, <br>');
+    }
+    xhr.send(JSON.stringify(ddata));
+}
+const gggetData = () => {
+   mmakeRequest('GET', 'https....');///here use different url
+}
+const sendData = () => {
+    makeRequest('POST', 'https://', {
+        title: 'foo',
+        body: 'bar',
+        userId: 55,
+    });
+}
+const updateData = () => {
+    makeRequest('PUT', 'https://', {/// put = update data
+        title: 'hii',
+        body: 'carry',
+        userId: 505,
+    });
+}
+const updateSingleData = () => {
+    makeRequest('PATCH', 'https://', {// PATCH = only change 1 thing not full body 
+        title: 'Wait',
+    });
+}
+const deleteData = () => {
+    makeRequest('DELETE', 'https://', {// PATCH = only change 1 thing not full body 
+    });
+}
+
+gggetData();
+updateData();
+updateSingleData();
+deleteData();
+
+//// fetch API calling 
+// by default return promise only network error 
+fetch("https://jsomplaceholder.typicode.com/posts/101")
+.then((res)=> res.json())
+.then((res)=> document.write(res))
+.catch((errr)=> document.write(errr));
+
+/// get method for 100 times 
+fetch("https://jsomplaceholder.typicode.com/posts/101")
+.then((res)=> {
+    if(!res.ok){
+        const publish= 'Error of fetch get api : ${res.status}';
+        throw new Error(publish);
+    }return res.json();
+})
+.then((res)=> document.write(res))
+.catch((errr)=> document.write(errr));
+
+/// put method 
+fetch("https://jsomplaceholder.typicode.com/posts/1",{
+    method: "POST",
+    headers: {
+        "Content-type": "appication/json; charset=UTF-8",
+    },
+    body: JSON.stringify({
+        id: 1,
+        title: "fetch",
+        body: "barr",
+        userId: 1,
+    }),
+})
+.then((res)=> {
+    if(!res.ok){
+        const publish= 'Error of fetch get api : ${res.status}';
+        throw new Error(publish);
+    }return res.json();
+})
+.then((res)=> document.write(res))
+.catch((errr)=> document.write(errr)); 
+
+/// patch method 
+fetch("https://jsomplaceholder.typicode.com/posts/1",{
+    method: "PATCH",
+    headers: {
+        "Content-type": "appication/json; charset=UTF-8",
+    },
+    body: JSON.stringify({
+        title: "fetch PATCH",
+
+    }),
+})
+.then((res)=> {
+    if(!res.ok){
+        const publish= 'Error of fetch get api : ${res.status}';
+        throw new Error(publish);
+    }return res.json();
+})
+.then((res)=> document.write(res))
+.catch((errr)=> document.write(errr)); 
+
+/// delete  method 
+fetch("https://jsomplaceholder.typicode.com/posts/1",{
+    method: "DELETE",
+})
+.then((res)=> {
+    if(!res.ok){
+        const publish= 'Error of fetch get api : ${res.status}';
+        throw new Error(publish);
+    }return res.json();
+})
+.then((res)=> document.write(res))
+.catch((errr)=> document.write(errr)); 
+
+/// async await 
+const makeeRequest = async (urrl, confg) => {
+    const ress = await fetch(urrl)
+    .then((ress)=> {
+        if(!ress.ok){
+            const ppublish= 'Error of fetch async: ${ress.status}';
+            throw new Error(ppublish);
+        }
+    })
+    const daata = await ress.json();
+    return daata;
+}
+const gettdata = () => {
+    makeeRequest("https://jsonplaceholder.typicode.com/posts")
+    .then((ress) => document.write(ress))
+    .catch((errr) => document.write(errr))
+};///make request 
+gettdata();
+
+//// send data 
+const makkeRequest = async (urrl, confg) => {
+    const ress = await fetch(urrl, confg)
+    .then((ress)=> {
+        if(!ress.ok){
+            const ppublish= 'Error of fetch send data: ${ress.status}';
+            throw new Error(ppublish);
+        }
+    })
+    const daata = await ress.json();
+    return daata;
+}
+const seenddata = () => {
+    makkeRequest("https://jsonplaceholder.typicode.com/posts",{
+        method: "POST",
+        body: JSON.stringify({
+        title: "fetch senddata",
+        body: "barr",
+        userId: 101,
+    }),
+    headers: {
+        "Content-type": "appication/json; charset=UTF-8",
+    },
+})
+    .then((ress) => document.write(ress))
+    .catch((errr) => document.write(errr))
+};
+seenddata();
+
+/// update data
+
+const updata = () => {
+    makkeRequest("https://jsonplaceholder.typicode.com/posts/1",{
+        method: "PUT",
+        body: JSON.stringify({
+            id: 1,
+        title: "fetch update data",
+    }),
+    headers: {
+        "Content-type": "appication/json; charset=UTF-8",
+    },
+})
+    .then((ress) => document.write(ress))
+    .catch((errr) => document.write(errr))
+};
+updata();
+
+//// delete data 
+const dedata = () => {
+    makkeRequest("https://jsonplaceholder.typicode.com/posts/1",{
+        method: "DELETE",
+    })
+    .then((ress) => document.write(ress))
+    .catch((errr) => document.write(errr))
+};
+dedata();
+
+/// axios = javascript API calling
+
+
+
+
+
+
 
 
 
