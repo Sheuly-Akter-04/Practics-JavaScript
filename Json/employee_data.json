@@ -1,0 +1,41 @@
+{
+  "Employees": [
+  {
+  "Name": "Emp 1",
+  "Middle Name": null,
+  "Age": "22",
+  "Salary": "15000",
+  "Status": "Yes",
+  "Languages": ["Bengali", "English", "French"],
+  "Relative": [
+    {
+      "Name": "Emp 101",
+      "Age": "24"
+    },
+        {
+      "Name": "Emp 201",
+      "Age": "29"
+    }
+  ]
+},
+{
+  "Name": "Emp 2",
+  "Middle Name": null,
+  "Age": "27",
+  "Salary": "18000",
+  "Status": "No",
+  "Languages": ["Bengali", "English", "Hindi"],
+  "Relative": [
+    {
+      "Name": "Emp 11",
+      "Age": "26"
+    },
+        {
+      "Name": "Emp 21",
+      "Age": "25"
+    }
+  ]
+}
+]
+}
+
